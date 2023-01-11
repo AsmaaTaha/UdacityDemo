@@ -2,6 +2,8 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@2.0.3
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -36,7 +38,7 @@ jobs:
      steps:
        - checkout
        - add_ssh_keys:
-            fingerprints: ["4f:53:22:aa:62:00:d6:bf:90:0c:53:21:a3:57:45:bd"] 
+            fingerprints: ["27:8f:98:60:7c:9d:32:f9:dc:4d:34:60:7b:94:09:35"] 
        - run: 
            name: Install Ansible
            command: |
