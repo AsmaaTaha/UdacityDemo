@@ -1,6 +1,6 @@
 Parameters:
 # New Bucket name
-MyBucketName:
+ MyBucketName:
   Description: Existing Bucket name
   Type: String
 Resources:
