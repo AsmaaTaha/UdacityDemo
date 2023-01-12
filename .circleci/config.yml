@@ -77,10 +77,22 @@ jobs:
               return 1
             fi
 
-
+  create_and_deploy_front_end:
+     docker:
+       - image: amazon/aws-cli
+     steps:
+       - checkout
+       - run:
+          name: Execute bucket.yml - Create Cloudformation Stack
+          command: |
+             aws cloudformation deploy \
+             --template-file bucket.yml \
+             --stack-name stack-create-bucket-${CIRCLE_WORKFLOW_ID:0:7} \
+             --parameter-overrides MyBucketName="mybucket-${CIRCLE_WORKFLOW_ID:0:7}"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   configureInfrastructureWorkflow4:
     jobs:
-      - SmokeTest
+      - create_and_deploy_front_end
+    
