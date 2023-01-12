@@ -92,7 +92,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  configureInfrastructureWorkflow4:
+  configureInfrastructureWorkflow5:
     jobs:
       - create_and_deploy_front_end
     
